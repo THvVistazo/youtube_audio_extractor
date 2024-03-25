@@ -5,14 +5,14 @@ from pytube import YouTube
 destination = "/home/balasundar/Downloads/"
 # link of the video to be downloaded
 # Replace with the Youtube video link you want to download.
-video_link = "https://www.youtube.com/watch?v=xWOoBJUqlbI"
+video_link = input("Paste link here: ")
 
 try:
     video = YouTube(video_link)
     # filtering the audio. File extension can be mp4/webm
     # You can see all the available streams by print(video.streams)
     audio = video.streams.filter(only_audio=True, file_extension='mp4').first()
-    audio.download()
+    audio.download(destination)
     print('Download Completed!')
     
 except:
